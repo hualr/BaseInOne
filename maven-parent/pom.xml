@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>maven-parent</artifactId>
+    <groupId>org.example</groupId>
+    <version>1.0-SNAPSHOT</version>
+<!--    鉴于之前并不存在该jar 因此需要首先本地安装,先单独运行该模块,再运行整个maven编译-->
+ <!--   pom的使用
+    1. 父级工程
+    2. 聚合工厂-->
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.1-jre</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/guava -->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>guava</artifactId>
+            <version>2.8.4</version>
+        </dependency>
+
+    </dependencies>
+    <name>parent</name>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!--        第一个插件实际上就是执行maven clean命令的时候调用的插件 实际上我实践发现不写也没啥影响-->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <executions>
+                        <!--            这里的设置之后,以后执行maven package会自动clean-->
+                        <execution>
+                            <id>auto-clean</id>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!--        这个插件指定了编译jdk的版本 默认是比较低的 我发现这里的3.8已经是1.8的jdk了-->
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <configuration>
+                        <!-- 一般而言，target与source是保持一致的，但是，有时候为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中不能使用低版本jdk中不支持的语法)，会存在target不同于source的情况 -->
+                        <!-- 源代码使用的JDK版本 -->
+                        <source>1.8</source>
+                        <!-- 需要生成的目标class文件的编译版本 -->
+                        <target>1.8</target>
+                        <!-- 字符集编码 -->
+                        <encoding>UTF-8</encoding>
+                        <!--跳过测试-->
+                        <!--<skipTests>true</skipTests> -->
+                        <!--  <verbose>true</verbose>
+                          <showWarnings>true</showWarnings>
+                          &lt;!&ndash; 要使compilerVersion标签生效，还需要将fork设为true，用于明确表示编译版本配置的可用 &ndash;&gt;
+                          <fork>true</fork>
+                          <executable>
+                                  &lt;!&ndash; path-to-javac &ndash;&gt;
+                          </executable>
+                          &lt;!&ndash; 使用指定的javac命令，例如：<executable>${JAVA_1_4_HOME}/bin/javac</executable> &ndash;&gt;
+                          <compilerVersion>1.3</compilerVersion>&lt;!&ndash; 指定插件将使用的编译器的版本 &ndash;&gt;
+                          &lt;!&ndash; 编译器使用的初始内存 &ndash;&gt;
+                          <meminitial>128m</meminitial>
+                          &lt;!&ndash; 编译器使用的最大内存 &ndash;&gt;
+                          <maxmem>512m</maxmem>
+                          &lt;!&ndash; 这个选项用来传递编译器自身不包含但是却支持的参数选项 &ndash;&gt;
+                          <compilerArgument>-verbose -bootclasspath ${java.home}\lib\rt.jar</compilerArgument>-->
+                    </configuration>
+                </plugin>
+                <!-- 这个插件是用于mvn test的插件 他会根据junit的版本号进行相关的执行 事实证明没有也会生效!-->
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                    <configuration>
+                        <skipTests>true</skipTests>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
