@@ -22,6 +22,8 @@
         <module>08-future</module>
         <module>09-string</module>
         <module>10-check</module>
+        <module>11-http</module>
+        <module>12-lambda</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
