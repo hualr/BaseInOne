@@ -30,15 +30,7 @@ public class PredicateDemo {
         System.out.println(greenApples);
     }
 
-    @Test
     public void test2(){
-        // 1. 单纯选择绿色的苹果
-        List<Apple> greenApples= FilterAppleImpl.filterGreenApples(apples);
-        System.out.println(greenApples);
-
-    }
-
-    public void test3(){
         /**根据指定的条件筛选
          * 直接将接口作为参数 然后创建一个匿名类 实现该匿名类即可
          */
@@ -52,17 +44,17 @@ public class PredicateDemo {
     }
 
     @Test
-    public void test4(){
+    public void test3() {
         //直接替换为lambda表达式.这里我清楚的是,传入的参数是根据方法声明判断的
-        List<Apple> conditionApples2=FilterAppleImpl.filterApplesByCondition (apples,
-                (apple)->(apple.getColor().equals("red")&&apple.getWeight()>26));
+        List<Apple> conditionApples2 = FilterAppleImpl.filterApplesByCondition(apples,
+                (apple) -> (apple.getColor().equals("red") && apple.getWeight() > 26));
 
         System.out.println(conditionApples2);
     }
 
     @Test
-    public void test5(){
-        List<Apple> condictionApples3=FilterAppleImpl.filter(apples, apple -> apple.getWeight()>10);
+    public void test4() {
+        List<Apple> condictionApples3 = FilterAppleImpl.filter(apples, apple -> apple.getWeight() > 10);
 
         System.out.println(condictionApples3);
     }

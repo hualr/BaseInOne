@@ -20,6 +20,7 @@ import org.junit.Test;
 public class MethodTest {
     List<Apple> apples = new ArrayList<>();
 
+    //初级演示
     @Test
     public void test1() {
         apples.sort(Comparator.comparing(apple -> apple.getWeight()));
@@ -28,9 +29,9 @@ public class MethodTest {
         System.out.println(apples);
     }
 
+    //静态方法引用
     @Test
     public void test2() {
-        //1. 静态方法引用
         System.out.println(Integer.parseInt("100"));
         System.out.println(new MethodUse1().test1("50", s -> Integer.parseInt(s)));
         //方法引用一定是根据lambda可以改编的
@@ -48,7 +49,6 @@ public class MethodTest {
 
         List<String> str = Arrays.asList("a", "b", "A", "B");
         str.sort(String::compareTo);
-        //如何转化为lambda
     }
 
     @Test
@@ -65,8 +65,6 @@ public class MethodTest {
         //BiFunction<String,Integer,Apple> c3=(color,weight)->new Apple(color,weight);
         BiFunction<String, Integer, Apple> c3 = Apple::new;
         Apple apple9 = c3.apply("red", 7);
-
-        //4. 实例方法引用
     }
 
     @Before

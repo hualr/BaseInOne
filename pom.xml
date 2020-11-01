@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-       <groupId>org.example</groupId>
-       <artifactId>maven-parent</artifactId>
-       <version>1.0-SNAPSHOT</version>
-   </parent>
+        <groupId>org.example</groupId>
+        <artifactId>maven-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <artifactId>BaseInOne</artifactId>
 
     <modules>
@@ -24,6 +24,10 @@
         <module>10-check</module>
         <module>11-http</module>
         <module>12-lambda</module>
+        <module>13-senior</module>
+        <module>14-concurrent</module>
+        <module>15-collection</module>
+        <module>16-regex</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->

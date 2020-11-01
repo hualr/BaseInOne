@@ -15,6 +15,5 @@ public class SupplierDemo {
     public void test(){
         Apple apple = new Apple();
         System.out.println(new SupplierImpl().test(apple,()->1));
-        return;
     }
 }

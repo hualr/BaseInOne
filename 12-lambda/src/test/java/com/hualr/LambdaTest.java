@@ -27,12 +27,10 @@ public class LambdaTest {
          * 3. 判断到底是谁在用接口的方法 这个方法在哪里被使用
          */
 
-//        我们想要在lambda中使用局部变量,必须保证该变量事实上是一个final
-/*        int portNumber=1;
-        Runnable runnable3=()->{
+        /* 在lambda表达式中无法使用可重新赋值的局部变量,一定得确保该局部变量为final类型*/
+        final int portNumber = 1;
+        Runnable runnable3 = () -> {
             System.out.println(portNumber);
         };
-        portNumber=0;
-*/
     }
 }
