@@ -2,11 +2,14 @@ package com.hualr.time;
 
 import java.time.DayOfWeek;
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.Period;
+import java.time.ZoneOffset;
+import java.util.Date;
 import org.junit.Test;
 
 /**
@@ -16,6 +19,8 @@ import org.junit.Test;
  * Version: 1.0.0
  */
 public class TimeTest {
+    public static final long TIMEOUT = 1000 * 60 * 10L;
+
     //日期
     @Test
     public void test1() {
@@ -77,13 +82,46 @@ public class TimeTest {
         Period period=Period.between(day1, day2);
         System.out.println(period.getDays());
     }
+
     //比较时间先后 闰年等
     @Test
-    public void test6(){
-        LocalDate date1=LocalDate.now();
-        LocalDate date2 = LocalDate.of(2020,8,13);
+    public void test6() {
+        LocalDate date1 = LocalDate.now();
+        LocalDate date2 = LocalDate.of(2020, 8, 13);
         System.out.println(date1.isAfter(date2));
         System.out.println(date1.isBefore(date2));
         System.out.println(date1.isLeapYear());
     }
+
+    @Test
+    public void test7() {
+        long timestamp = System.currentTimeMillis();
+        LocalDate localDate = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(8)).toLocalDate();
+        LocalDateTime localDateTime = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(8)).toLocalDateTime();
+        DayOfWeek dayOfWeek = localDateTime.getDayOfWeek();
+        System.out.println(localDateTime);
+    }
+
+    @Test
+    public void test8() {
+        System.out.println(1000 * 60 * 10 - TimeTest.TIMEOUT);
+    }
+
+    @Test
+    public void test9() {
+        LocalDate nowLocalDate = LocalDate.now();
+        Date date = Date.from(nowLocalDate.atStartOfDay(ZoneOffset.ofHours(8)).toInstant());
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Date date2 = Date.from(localDateTime.atZone(ZoneOffset.ofHours(8)).toInstant());
+
+        LocalDateTime localDateTime2 = date.toInstant().atZone(ZoneOffset.ofHours(8)).toLocalDateTime();
+        LocalDate localDate = date.toInstant().atZone(ZoneOffset.ofHours(8)).toLocalDate();
+
+        long timestamp = localDate.atStartOfDay(ZoneOffset.ofHours(8)).toInstant().toEpochMilli();
+
+        LocalDate localDate2 = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(8)).toLocalDate();
+        LocalDateTime localDateTime3 = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(8)).toLocalDateTime();
+    }
+
 }

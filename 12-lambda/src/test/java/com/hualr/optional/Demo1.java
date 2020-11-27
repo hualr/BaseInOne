@@ -47,7 +47,7 @@ public class Demo1 {
 
         System.out.println(color1);
 
-        //ZNN 3 比orElse多一些功能
+        //ZNN 3 比orElse多一些功能 但是得记住 这里绝对不可以放null
         String color2 =appleOptional
                 .map(apple -> apple.getColor())
                 .orElseGet(()->{
