@@ -14,7 +14,7 @@ import org.junit.Test;
  * Version: 1.0.0
  */
 public class Test1 {
-    private String CFG_PATH = System.getProperty("user.dir") + "\\specialRule.json";
+    private final String CFG_PATH = System.getProperty("user.dir") + "\\specialRule.json";
 
     @Test
     public void test1() {

@@ -35,4 +35,78 @@ public class StringTest1 {
         int index = a.lastIndexOf("C");
         System.out.println(a.substring(index));
     }
+
+    @Test
+    public void test5() {
+        String a = "1";
+        Apple apple = new Apple();
+        test5Init(a, apple);
+
+        //第一个未改变
+        System.out.println(a);
+        //第二个改变了
+        System.out.println(apple);
+    }
+
+    void test5Init(String a, Apple apple) {
+        a = "2";
+        apple.setColor("red");
+    }
+
+    @Test
+    public void test6() {
+        String a = "-B";
+        String[] split = a.split("-");
+        System.out.println(split);
+
+        String b = "";
+        String[] split1 = a.split("-");
+        System.out.println(split);
+
+        String[] ab = " - ".split("-");
+        System.out.println(ab);
+
+        String srcPhysicalChannel = "-";
+        int endIndex = !srcPhysicalChannel.contains("-") ? 0 :
+                srcPhysicalChannel.indexOf("-");
+        String primaryChannel = srcPhysicalChannel.substring(0, endIndex);
+        String backChannel = srcPhysicalChannel.substring(endIndex);
+
+        System.out.println("----------------");
+        System.out.println(primaryChannel + "  " + backChannel);
+    }
+
+    @Test
+    public void test7() {
+        String aString = "A-B";
+        System.out.println(aString.split("-").length);
+    }
 }
+
+/**
+ * if (Objects.equals(business.getSrcNeId(), connectivityMessager.getNeId())) {
+ * //以-为划分 primaryChannel之前 A-B 中A B
+ * String srcPhysicalChannel = business.getSrcPhysicalChannel();
+ * if (Objects.isNull(srcPhysicalChannel)){
+ * srcPhysicalChannel="";
+ * }
+ * int endIndex = !srcPhysicalChannel.contains("-") ? 0 :
+ * srcPhysicalChannel.indexOf("-");
+ * String primaryChannel = srcPhysicalChannel.substring(0, endIndex);
+ * String backChannel = srcPhysicalChannel.substring(endIndex);
+ * if (business.isPrimaryBusiness()) {
+ * primaryChannel = isStrEmpty(primaryChannel)?connectivityMessager.getClientPortChannel():primaryChannel;
+ * } else {
+ * backChannel = isStrEmpty(backChannel)?connectivityMessager.getClientPortChannel():backChannel;
+ * }
+ * business.setSrcPhysicalChannel(primaryChannel + backChannel);
+ * } else {
+ * String primaryChannel = isStrEmpty(business.getDstPhysicalChannel()) ? "" : business.getDstPhysicalChannel();
+ * String backChannel = isStrEmpty(business.getDstPhysicalChannel()) ? "-" : business.getDstPhysicalChannel();
+ * if (business.isPrimaryBusiness()) {
+ * primaryChannel = isStrEmpty(primaryChannel)?connectivityMessager.getClientPortChannel():primaryChannel;
+ * } else {
+ * backChannel = isStrEmpty(backChannel)?connectivityMessager.getClientPortChannel():backChannel;
+ * }
+ * business.setDstPhysicalChannel(primaryChannel + backChannel);
+ */

@@ -124,4 +124,10 @@ public class TimeTest {
         LocalDateTime localDateTime3 = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(8)).toLocalDateTime();
     }
 
+    @Test
+    public void test10() {
+        Boolean isture = false;
+        System.out.println(isture instanceof Boolean);
+    }
+
 }

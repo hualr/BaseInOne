@@ -28,6 +28,11 @@
         <module>14-concurrent</module>
         <module>15-collection</module>
         <module>16-regex</module>
+        <module>17-evenbus</module>
+        <module>18-dagger2</module>
+        <module>19-rxJava2</module>
+        <module>20-exception</module>
+        <module>21-compute</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
