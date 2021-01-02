@@ -42,4 +42,12 @@ public class ExceptionTest {
         }
         System.out.println("抛出异常不会打印后面的语句");
     }
+
+    /**
+     *
+     */
+    @Test
+    public void test() {
+
+    }
 }
