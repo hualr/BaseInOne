@@ -9,18 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>18-dagger2</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>18-1-guice1</module>
-    </modules>
-
+    <artifactId>23-disruptor</artifactId>
 
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/com.lmax/disruptor -->
         <dependency>
-            <groupId>com.google.inject</groupId>
-            <artifactId>guice</artifactId>
-            <version>4.1.0</version>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.2</version>
         </dependency>
+
     </dependencies>
+
+
 </project>

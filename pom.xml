@@ -33,6 +33,9 @@
         <module>19-rxJava2</module>
         <module>20-exception</module>
         <module>21-compute</module>
+        <module>22-jucTools</module>
+        <module>23-disruptor</module>
+        <module>24-nio</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
