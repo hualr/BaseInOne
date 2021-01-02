@@ -1,4 +1,4 @@
-package com.hualr.stream.steam;
+package com.hualr.stream.collect;
 
 import com.hualr.bean.Dish;
 import java.util.ArrayList;
