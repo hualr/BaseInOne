@@ -10,7 +10,5 @@ public class Future1 {
         System.out.println(1);
         new Shop().getPrice("fewfw");
         System.out.println(2);
-
-
     }
 }

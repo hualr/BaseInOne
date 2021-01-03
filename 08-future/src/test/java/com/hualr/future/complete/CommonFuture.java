@@ -1,6 +1,5 @@
 package com.hualr.future.complete;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,12 +10,9 @@ import java.util.concurrent.TimeoutException;
 public class CommonFuture {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        Future<Double> future = executorService.submit(new Callable<Double>() {
-            @Override
-            public Double call() throws Exception {
-                System.out.println("我在进行异步操作");
-                return 1.0;
-            }
+        Future<Double> future = executorService.submit(() -> {
+            System.out.println("我在进行异步操作");
+            return 1.0;
         });
         //异步提交了 但是我们这里会优先执行一个1;
         //且我们发现这是一个死循环 永远到不到get

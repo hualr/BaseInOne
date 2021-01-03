@@ -36,6 +36,7 @@
         <module>22-jucTools</module>
         <module>23-disruptor</module>
         <module>24-nio</module>
+        <module>25-concurrent</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
