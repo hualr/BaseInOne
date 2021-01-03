@@ -3,20 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>BaseInOne</artifactId>
+        <artifactId>25-concurrent</artifactId>
         <groupId>org.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>25-concurrent</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>25-1-thread</module>
-        <module>25-2-executor</module>
-        <module>25-3-future</module>
-        <module>25-4-CompleteFuture</module>
-    </modules>
+    <artifactId>25-4-CompleteFuture</artifactId>
 
 
 </project>

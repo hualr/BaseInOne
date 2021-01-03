@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -50,7 +49,7 @@ public class BaseFuture {
         @Override
         public Integer call() throws Exception {
             Thread.sleep(3000);
-            return new Random().nextInt();
+            return 1;
         }
     }    //定义Callable类从而获取值
 
