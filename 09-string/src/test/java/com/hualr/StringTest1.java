@@ -1,5 +1,6 @@
 package com.hualr;
 
+import java.util.List;
 import org.junit.Test;
 
 /**
@@ -80,6 +81,19 @@ public class StringTest1 {
     public void test7() {
         String aString = "A-B";
         System.out.println(aString.split("-").length);
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void test8() {
+        List<String> arraysOf = null;
+        System.out.println(String.format(
+                "logicalChannel-netconf-%s-response", "1"));
+        for (String s : arraysOf) {
+            System.out.println("fef");
+        }
     }
 }
 

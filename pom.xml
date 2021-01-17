@@ -37,6 +37,8 @@
         <module>23-disruptor</module>
         <module>24-nio</module>
         <module>25-concurrent</module>
+        <module>untitled</module>
+        <module>26-retry</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
