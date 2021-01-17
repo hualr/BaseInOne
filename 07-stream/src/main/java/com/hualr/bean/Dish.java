@@ -1,5 +1,6 @@
 package com.hualr.bean;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -10,17 +11,25 @@ import lombok.Data;
  */
 
 @Data
+@Builder
 public class Dish {
     private final String name;
     private final boolean vegetarian;
     private final int calories;
     private final Type type;
+    private int weight;
 
-    public Dish(String name, boolean vegetarian, int calories, Type type) {
+    public Dish(String name, boolean vegetarian, int calories, Type type,int weight) {
         this.name = name;
         this.vegetarian = vegetarian;
         this.calories = calories;
         this.type = type;
+        this.weight=weight;
+    }
+
+    public Dish setweight(int weight){
+        this.weight=weight;
+        return this;
     }
 
 

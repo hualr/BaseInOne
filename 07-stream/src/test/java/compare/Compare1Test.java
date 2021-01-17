@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * @author zongqi
  */
-public class CompareTest {
+public class Compare1Test {
     /**
      * 基础比较
      */
@@ -74,6 +74,9 @@ public class CompareTest {
         System.out.println(list);
     }
 
+    /**
+     * 这里实际上就是最常用的写法
+     */
     @Test
     public void test2() {
         List<String> list = Arrays.asList("100", "1", "5", "7", "3", "4");
@@ -102,7 +105,6 @@ public class CompareTest {
         s = s.replaceAll("[^0-9]*", "");
         s = s.equals("") ? "0" : s;
         System.out.println(s);
-
     }
 
 }
