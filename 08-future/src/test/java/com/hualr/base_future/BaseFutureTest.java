@@ -13,10 +13,10 @@ import org.junit.Test;
  *
  * @author zongqi
  */
-public class BaseFuture {
+public class BaseFutureTest {
 
     /**
-     * Future最基础的使用演示 这里实际上四一个同步阻塞的过程
+     * Future最基础的使用演示 这里实际上是一个同步阻塞的过程
      */
     @Test
     public void test1() {

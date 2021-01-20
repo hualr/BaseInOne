@@ -10,15 +10,14 @@ import com.google.common.util.concurrent.MoreExecutors;
 import org.junit.jupiter.api.Test;
 
 /**
- * Author: zongqi
- * Function:
- * Creating Time：2020/11/1 10:40
+ * Author: zongqi<br>
+ * Function:<br>
+ * Creating Time：2020/11/1 10:40<br>
  * Version: 1.0.0
  */
 public class ListenableFuture2 {
     // 创建线程池
     final static ListeningExecutorService service = MoreExecutors.listeningDecorator(newCachedThreadPool());
-
 
     @Test
     //@RepeatedTest(10)

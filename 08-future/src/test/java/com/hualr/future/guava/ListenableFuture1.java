@@ -9,21 +9,22 @@ import java.util.concurrent.Executors;
 import org.junit.Test;
 
 /**
- * Author: zongqi
- * Function:
- * Creating Time：2020/11/1 10:38
- * Version: 1.0.0
+ * Author: zongqi<br>
+ * Function:<br>
+ * Creating Time：2020/11/1 10:38<br>
+ * Version: 1.0.0<br>
  */
 public class ListenableFuture1 {
+    /**
+     * <li>ListeningExecutorService->ExecutorService的扩展，重新包装ExecutorService类中的submit方法，返回ListenableFuture对象。
+     * <li>MoreExecutors->该类是final类型的工具类，提供了很多静态方法。比如ListeningDecorator方法初始化ListeningExecutorService方法
+     */
     @Test
     public void test1() throws InterruptedException {
-        /**
-         * ListeningExecutorService->ExecutorService的扩展，重新ExecutorService类中的submit方法，返回ListenableFuture对象。
-         *  MoreExecutors->该类是final类型的工具类，提供了很多静态方法。比如ListeningDecorator方法初始化ListeningExecutorService方法
-         */
+
         //1. 定义线程池
         ListeningExecutorService service = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
-        ListenableFuture<String> explosion = service.submit(() -> {
+        ListenableFuture<String> doSomeThings = service.submit(() -> {
             try {
                 System.out.println("开始A操作");
                 Thread.sleep(10000L);
@@ -39,9 +40,8 @@ public class ListenableFuture1 {
 
         //不会阻塞C操作,只是一个监听器
         Futures.addCallback(
-                explosion,
+                doSomeThings,
                 new FutureCallback<String>() {
-                    // we want this handler to run immediately after we push the big red button!
                     @Override
                     public void onSuccess(String explosion) {
                         System.out.println("成功" + explosion);
@@ -49,11 +49,13 @@ public class ListenableFuture1 {
 
                     @Override
                     public void onFailure(Throwable thrown) {
-                        System.out.println("失败"); // escaped the explosion!
+                        System.out.println("失败"); // escaped the doSomeThings!
                     }
                 },
                 service);
-
         System.out.println("开始C操作");
+        while (!doSomeThings.isDone()){
+            Thread.sleep(1000);
+        }
     }
 }

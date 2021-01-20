@@ -7,19 +7,13 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Test;
 
 /**
- * Function: <br>
- * Creating Time: 2021/1/5 12:19 <br>
+ * Function: Retry的初级使用<br>
+ * Creating Time: 2021/1/19 <br>
  * Version: 1.0.0
  *
- * @author zongqi
+ * @author 宗旗
  */
-public class GuavaReTry1Test {
-
-    /**
-     * 重试方法
-     *
-     * @return
-     */
+public class GuavaRetryTest1 {
     public static boolean retryTask(String param) {
         System.out.println("收到请求参数:" + param);
         int i = new Random().nextInt(3);
@@ -52,13 +46,6 @@ public class GuavaReTry1Test {
                 .withStopStrategy(StopStrategies.stopAfterAttempt(3)) //设置最大重试次数
                 .build();
 
-        try {
-            retryer.call(() ->);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
-
-}
 
 }

@@ -39,6 +39,7 @@
         <module>25-concurrent</module>
         <module>untitled</module>
         <module>26-retry</module>
+        <module>27-common</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
