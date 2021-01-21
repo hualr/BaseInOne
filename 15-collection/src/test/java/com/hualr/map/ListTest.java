@@ -3,6 +3,7 @@ package com.hualr.map;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import org.junit.Test;
 
@@ -47,5 +48,24 @@ public class ListTest {
     public void test5() {
         List a = Collections.emptyList();
         System.out.println(a.isEmpty());
+    }
+
+    /**
+     * linkList的使用
+     */
+
+    @Test
+    public void test6() {
+        LinkedList<Integer> arrayList = new LinkedList<>();
+
+        arrayList.add(1);
+        arrayList.add(2);
+        System.out.println(arrayList.peek());
+        System.out.println(arrayList.peekFirst());
+        arrayList.add(3);
+        arrayList.add(4);
+        arrayList.addFirst(0);
+        arrayList.addFirst(-1);
+        System.out.println(arrayList);
     }
 }
