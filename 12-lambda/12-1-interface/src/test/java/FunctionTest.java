@@ -12,7 +12,7 @@ import org.junit.Test;
  *
  * @author 宗旗
  */
-public class FunctionTest1 {
+public class FunctionTest {
     /**
      * 基本使用1
      */
@@ -45,20 +45,38 @@ public class FunctionTest1 {
         Function<Integer,Integer> B=i->i*i;
         //(1+5)2
         System.out.println("F1:"+B.apply(A.apply(5)));
-        //先完成里面在完成外面
+        //从右往左处理
         System.out.println("F1:"+B.compose(A).apply(5));
         //1+(5*5)
         System.out.println("F2:"+A.apply(B.apply(5)));
-        //先完成外面在完成里面
+        //从左往右处理
         System.out.println("F2:"+B.andThen(A).apply(5));
         System.out.println(B.compose(A).compose(A).andThen(A).apply(5));
+    }
+
+
+    /**
+     *  基本使用4
+     */
+    @Test
+    public void test4(){
+        System.out.println(calculate2(a->a*a,a->a-1, 5));
+        System.out.println(calculate3(a->a*a,a->a-1, 5));
+    }
+
+    public static Integer calculate2(Function<Integer,Integer> test1,Function<Integer, Integer> test2,Integer number){
+        return test1.compose(test2).apply(number);
+    }
+
+    public static Integer calculate3(Function<Integer,Integer> test1,Function<Integer, Integer> test2,Integer number){
+        return test1.andThen(test2).apply(number);
     }
 
     /**
      *  identify
      */
     @Test
-    public void test4(){
+    public void test5(){
         Function<Integer,Integer> A=i->i*i;
         final List<Integer> integers = Arrays.asList(1, 2, 3, 4);
         final Map<Integer, Integer> map1 = integers.stream().collect(Collectors.toMap(A, A));

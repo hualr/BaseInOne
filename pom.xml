@@ -40,6 +40,8 @@
         <module>untitled</module>
         <module>26-retry</module>
         <module>27-common</module>
+        <module>00-rule</module>
+        <module>28-redis</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
