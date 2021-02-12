@@ -1,8 +1,5 @@
 package com.hualr.optional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import org.junit.Test;
 
@@ -48,46 +45,7 @@ public class OptionalTest1 {
         return true;
     }
 
-    @Test
-    public void test4() {
-        System.out.println(true ^ false);
-        System.out.println(false ^ true);
-        System.out.println(true ^ true);
-        System.out.println(false ^ false);
-    }
 
-    @Test
-    public void test5() {
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("1");
-        strings.add("2");
-        strings.add("3");
-        strings.removeIf(s -> s.equals("1"));
-        System.out.println(strings);
-        System.out.println(strings.get(0));
-    }
-
-    @Test
-    public void test6() {
-        System.out.println(null instanceof List);
-    }
-
-    @Test
-    public void test7() {
-        String str = null;
-
-        switch (Objects.requireNonNull(str)) {
-            case "A":
-                System.out.println("A");
-                break;
-            case "B":
-                System.out.println("B");
-                break;
-            default:
-                System.out.println("C");
-
-        }
-    }
 
     @Test
     public void test8() {
