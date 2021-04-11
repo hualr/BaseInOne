@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
@@ -25,6 +27,13 @@ public class RedisJava1 {
         jedis.auth("123456");
     }
 
+    @After
+    public void destory(){
+        if (jedis!=null){
+            jedis.close();
+        }
+    }
+
     /**
      * redis存储字符串
      */
@@ -34,6 +43,7 @@ public class RedisJava1 {
         jedis.set("name", "zongqi");
         System.out.println(jedis.get("name"));
 
+        System.out.println("jedis.select(0) = " + jedis.select(0));
         //append
         jedis.append("name", " is my student");
         System.out.println(jedis.get("name"));
@@ -47,6 +57,9 @@ public class RedisJava1 {
         //进行加1操作
         jedis.incr("age");
         System.out.println(jedis.get("name") + "-" + jedis.get("age") + "-" + jedis.get("qq"));
+
+        Set<String> col=jedis.keys("*");
+        System.out.println(col);
     }
 
     /**

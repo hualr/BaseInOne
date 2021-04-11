@@ -42,6 +42,8 @@
         <module>27-common</module>
         <module>00-rule</module>
         <module>28-redis</module>
+        <module>29-asm</module>
+        <module>30-zookeeper</module>
     </modules>
 
 <!--    默认为jar 何时用jar-->
